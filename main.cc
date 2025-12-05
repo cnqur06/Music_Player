@@ -19,20 +19,16 @@ public:
     {
         return (head == NULL);
     }
-    void show_Menu()
+    void show()
     {
-        cout << "Main Menu \n";
-        cout << "------------------\n";
-        cout << "1. Insert \n";
-        cout << "2. Delete \n";
-        cout << "3. Search \n";
-        cout << "4. Update \n";
-        cout << "5. Display \n";
-        cout << "6. Exit\n";
-        cout << "------------------\n";
-        cout << "Enter your choice: ";
+        cout << "******MENU******" << endl;
+        cout << "1-Insert Song" << endl;
+        cout << "2-Delete Song" << endl;
+        cout << "3-Search Song" << endl;
+        cout << "4-Update Song" << endl;
+        cout << "5-Display all songs" << endl;
+        cout << "6-Exit" << endl;
     }
-
     void search_Song(string song)
     {
         Node *temp = head;
@@ -57,7 +53,8 @@ public:
             }
         }
     }
-    void play_next(){
+    void play_next()
+    {
         if (isEmpty())
         {
             cout << "playlist is Empty!!\n";
@@ -76,40 +73,149 @@ public:
             }
             else
             {
-                if ( ( temp->next ) != NULL ){
+                if ((temp->next) != NULL)
+                {
                     cout << "now playing : " << (temp->next)->data << "\n";
                 }
-                else{
+                else
+                {
                     cout << "end of playlist , current song is : " << is_curr << " , now playing first song: " << head->data << "\n";
                     is_curr = head->data;
                 }
             }
         }
     }
-    void play_prev(){
-        if ( isEmpty() ){
+    void play_prev()
+    {
+        if (isEmpty())
+        {
             cout << "playlist empty\n";
         }
-        else{
-            Node *temp = head; Node *prev = NULL;
-            while ( temp != NULL && temp->data != is_curr ){
+        else
+        {
+            Node *temp = head;
+            Node *prev = NULL;
+            while (temp != NULL && temp->data != is_curr)
+            {
                 prev = temp;
                 temp = temp->next;
             }
-            if ( temp == NULL ){
+            if (temp == NULL)
+            {
                 cout << "playing last song -> " << prev->data << "\n";
                 is_curr = prev->data;
             }
-            else if ( temp->data == is_curr ){
+            else if (temp->data == is_curr)
+            {
                 cout << "playing the previous of : " << temp->data << " , which is : " << prev->data << "\n";
                 is_curr = prev->data;
             }
         }
     }
+    void insert_Song(string name)
+    {
+    }
+    void delete_Song(string name)
+    {
+    }
+    void update_Song(string song, string name)
+    {
+    }
+    void display_All_songs()
+    {
+    }
 };
 
 // lessa 2el main function
 
-int main(){
+int main()
+{
+    playlist p;
+    int choice = 0;
+    string name, song;
+    char ask;
 
+            {
+                cout << "Enter song name to insert: ";
+                cin >> name;
+                p.insert_Song(name);
+
+                cout << "Do you want to insert another song? (y/n): ";
+                cin >> ask;
+
+            } while (ask == 'y' || ask == 'Y');
+        }
+
+        else if (choice == 2)
+        {
+            do
+            {
+                cout << "Enter song name to delete: ";
+                cin >> name;
+                p.delete_Song(name);
+
+                cout << "Delete another song? (y/n): ";
+                cin >> ask;
+
+            } while (ask == 'y' || ask == 'Y');
+        }
+
+        else if (choice == 3)
+        {
+            do
+            {
+                cout << "Enter song name to search: ";
+                cin >> name;
+                p.search_Song(name);
+
+                cout << "Search again? (y/n): ";
+                cin >> ask;
+
+            } while (ask == 'y' || ask == 'Y');
+        }
+
+        else if (choice == 4)
+        {
+            do
+            {
+                cout << "Enter old song name: ";
+                cin >> song;
+
+                cout << "Enter new song name: ";
+                cin >> name;
+
+                p.update_Song(song, name);
+
+                cout << "Update another song? (y/n): ";
+                cin >> ask;
+
+            } while (ask == 'y' || ask == 'Y');
+        }
+
+        else if (choice == 5)
+        {
+            do
+            {
+                p.display_All_songs();
+
+                cout << "Display again? (y/n): ";
+                cin >> ask;
+
+            } while (ask == 'y' || ask == 'Y');
+        }
+
+        else if (choice == 6)
+        {
+            cout << "Exiting... Goodbye!" << endl;
+        }
+
+        else
+        {
+            cout << "Invalid choice!" << endl;
+        }
+
+        cout << endl;
+    }
+
+    return 0;
 }
