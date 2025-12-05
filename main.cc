@@ -135,6 +135,15 @@ int main()
     string name, song;
     char ask;
 
+    while (choice != 6)
+    {
+        p.show();
+        cout << "Enter your choice : ";
+        cin >> choice;
+
+        if (choice == 1)
+        {
+            do
             {
                 cout << "Enter song name to insert: ";
                 cin >> name;
