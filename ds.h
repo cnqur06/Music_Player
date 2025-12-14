@@ -241,8 +241,18 @@ public:
             }
             else if (temp->data == curSong)
             {
-                cout << "playing the previous of : " << temp->data << " , which is : " << prev->data << "\n";
-                curSong = prev->data;
+                string temporary_var = temp->data;
+                if ( prev == NULL ){
+                    while ( temp->next != NULL ){
+                        temp = temp->next;
+                    }
+                    cout << "we're at the start of playlist .... which is " << temporary_var << " , now playing last song : " << temp->data << "\n";
+                    curSong = temp->data;
+                }
+                else{ // in the case of proceeding in the playlist i.e not in first position
+                    cout << "playing the previous of : " << temp->data << " , which is : " << prev->data << "\n";
+                    curSong = prev->data;
+                }
             }
         }
     }
