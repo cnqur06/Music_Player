@@ -32,7 +32,7 @@ int main()
         {
             cin.clear();            // reset error state
             cin.ignore(1000, '\n'); // discard invalid input
-            cout << "Error: Please enter a number from 1 to 6\n";
+            cout << "Error: Please enter a number from 1 to 8\n";
             continue; // restart loop
         }
 
@@ -104,6 +104,12 @@ int main()
             obj.display_All_Songs();
             break;
         case 6:
+            obj.play_next();
+            break;
+        case 7:
+            obj.play_prev();
+            break;
+        case 8:
             cout << "Exiting...\n";
             return 0;
 

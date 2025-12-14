@@ -42,7 +42,9 @@ public:
         cout << "3. Search \n";
         cout << "4. Update \n";
         cout << "5. Display \n";
-        cout << "6. Exit\n";
+        cout << "6. Play the next song\n";
+        cout << "7. Play the previous song\n";
+        cout << "8. Exit\n";
         cout << "------------------\n";
         cout << "Enter your choice: ";
     }
@@ -265,12 +267,14 @@ public:
             }
             else
             {
+                // FIXED : current song wasn't updated accurately.
+                // cout << "stopped at : " << temp->data << " which in comparison with " << curSong << "\n";
                 if ((temp->next) != NULL)
                 {
                     cout << "now playing : " << (temp->next)->data << "\n";
+                    curSong = (temp->next)->data;
                 }
-                else
-                {
+                else{
                     cout << "end of playlist , current song is : " << curSong << " , now playing first song: " << head->data << "\n";
                     curSong = head->data;
                 }
