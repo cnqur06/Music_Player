@@ -267,7 +267,7 @@ public:
             }
             else
             {
-                // FIXED : current song wasn't updated accurately.
+                // FIXED : current song wasn't updated accurately
                 // cout << "stopped at : " << temp->data << " which in comparison with " << curSong << "\n";
                 if ((temp->next) != NULL)
                 {
